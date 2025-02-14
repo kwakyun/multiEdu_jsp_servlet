@@ -1,0 +1,27 @@
+body{
+    background-image: url(../images/0001.png);
+}
+table{
+    width: 500px;
+}
+input[type=text],
+input[type=password],
+input[type=tel]{
+    width: 100%;
+    padding: 8px 8px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #0f9805;
+    border-radius: 10px;
+}
+input[type=submit]{
+    width: 30%;
+    padding: 8px 8px;
+    margin: 8px 0px;
+    border-radius: 10px;
+    background-color: rgb(12, 135, 133);
+    color: azure;
+}
+input[type=submit]:hover{
+    background-color: rgb(39, 78, 0);
+}
