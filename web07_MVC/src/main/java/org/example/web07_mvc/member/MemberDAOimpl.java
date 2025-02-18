@@ -1,6 +1,7 @@
 package org.example.web07_mvc.member;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MemberDAOimpl implements MemberDAO {
@@ -58,6 +59,7 @@ public class MemberDAOimpl implements MemberDAO {
             MemberVO vo = new MemberVO(1 + i, "admin" + (1 + i), "hi1111" + (1 + i), "kim" + (1 + i), "011" + (1 + i));
             vos.add(vo);
         }
+
 
         return vos;
     }

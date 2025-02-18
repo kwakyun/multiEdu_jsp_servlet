@@ -1,6 +1,7 @@
 package org.example.web07_mvc.board;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BoardDAOimpl implements BoardDAO {
@@ -58,7 +59,9 @@ public class BoardDAOimpl implements BoardDAO {
         for (int i = 0; i < 5; i++) {
             BoardVO vo = new BoardVO(1+i,"title"+(1+i),"content"+(1+i),"admin0"+(1+i),"2025-12-2"+(1+i));
             vos.add(vo);
+
         }
+
         return vos;
     }
 
