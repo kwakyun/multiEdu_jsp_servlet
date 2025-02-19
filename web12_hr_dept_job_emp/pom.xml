@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>web10_session_cookie</artifactId>
+    <artifactId>web12_hr_dept_job_emp</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>web10_session_cookie</name>
+    <name>web12_hr_dept_job_emp</name>
     <packaging>war</packaging>
 
     <properties>
@@ -36,7 +36,6 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <!--jakartaJSP API -->
         <dependency>
             <groupId>jakarta.servlet.jsp</groupId>
@@ -64,9 +63,15 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>8.3.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+            <scope>provided</scope>
+        </dependency>
+
+
     </dependencies>
-
-
 
     <build>
         <plugins>

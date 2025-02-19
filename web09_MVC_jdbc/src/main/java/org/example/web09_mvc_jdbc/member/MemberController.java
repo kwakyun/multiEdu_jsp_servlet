@@ -16,7 +16,7 @@ import java.util.List;
         , "/m_updateOK.do", "/m_deleteOK.do"})
 public class MemberController extends HttpServlet {
 
-    private BoardService service = new BoardService();
+    private MemberService service = new MemberService();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
