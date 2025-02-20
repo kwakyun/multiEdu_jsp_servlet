@@ -1,101 +1,100 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>부서 등록 페이지</title>
+  <title>Document</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 600px;
-      margin: 50px auto;
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px 30px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 30px;
-    }
-    table {
+    input[type=text],
+    textarea,
+    select {
       width: 100%;
-      border-collapse: collapse;
-    }
-    table td {
-      padding: 12px;
-    }
-    label {
-      display: block;
-      font-weight: bold;
-      color: #555;
-      margin-bottom: 5px;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      padding: 8px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ff8f8f;
+      border-radius: 14px;
       box-sizing: border-box;
     }
-    input[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      background-color: #0c8785;
-      color: #fff;
+
+    input[type=submit] {
+      width: 30%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 8px;
+      margin: 8px 0;
       border: none;
-      border-radius: 4px;
-      font-size: 16px;
+      border-radius: 14px;
       cursor: pointer;
-      margin-top: 20px;
     }
-    input[type="submit"]:hover {
-      background-color: #274e00;
+
+    input[type=submit]:hover {
+      background-color: #b7e5b9;
+    }
+
+    div {
+      border-radius: 15px;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    #insertTable {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #insertTable td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #insertTable tr:nth-child(even) {
+      background-color: #ebebeb;
+    }
+
+    #insertTable tr:hover {
+      background-color: #ffc6c6;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>부서 등록 페이지</h1>
-    <jsp:include page="../top_menu.jsp"/>
-    <form action="j_insertOK.do" method="post">
-      <table>
-        <tr>
-          <td>
-            <label for="job_id">직업아이디:</label>
-            <input type="text" id="job_id" name="job_id" value="BE">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="job_title">직책명:</label>
-            <input type="text" id="job_title" name="job_title" value="Backend_Engineer">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="min_salary">최소급여:</label>
-            <input type="text" id="min_salary" name="min_salary" value="5000">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="max_salary">최대급여:</label>
-            <input type="text" id="max_salary" name="max_salary" value="15000">
-          </td>
-        </tr>
-      </table>
-      <input type="submit" value="전송">
-    </form>
-  </div>
+<jsp:include page="../top_menu.jsp"/>
+<div>
+  <h1>업무등록 페이지</h1>
+  <form action="j_insertOK.do" method="post">
+    <table id="insertTable">
+      <tr>
+        <td><label for="job_id">job_id</label></td>
+        <td><input type="text" id="job_id" name="job_id" value="IT2"
+                   placeholder="업무아이디를 입력하세요"></td>
+      </tr>
+      <tr>
+        <td><label for="job_title">job_title</label></td>
+        <td><input type="text" id="job_title" name="job_title" value="IT Helpdesk2"
+                   placeholder="업무명을 입력하세요"></td>
+      </tr>
+      <tr>
+        <td><label for="min_salary">min_salary</label></td>
+        <td><input type="number" id="min_salary" name="min_salary" value="2400"
+                   placeholder="최소급여를 입력하세요"></td>
+      </tr>
+      <tr>
+      <tr>
+        <td><label for="max_salary">max_salary</label></td>
+        <td><input type="number" id="max_salary" name="max_salary" value="12000"
+                   placeholder="최대급여를 입력하세요"></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit" value="등록완료"></td>
+      </tr>
+    </table>
+  </form>
+</div>
 </body>
+
 </html>

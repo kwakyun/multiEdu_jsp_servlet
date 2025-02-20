@@ -2,45 +2,36 @@ package org.example.web12_hr_dept_job_emp.emp;
 
 import java.util.List;
 
-public class EmpService implements EmpDAO {
-    EmpDAO dao = new EmpDAOimpl();
-    @Override
+public class EmpService  {
+
+    private EmpDAO dao = new EmpDAOimpl();
+
     public int insert(EmpVO vo) {
         return dao.insert(vo);
     }
 
-    @Override
+
     public int update(EmpVO vo) {
         return dao.update(vo);
     }
 
-    @Override
+
     public int delete(EmpVO vo) {
         return dao.delete(vo);
     }
 
-    @Override
+
     public EmpVO selectOne(EmpVO vo) {
         return dao.selectOne(vo);
     }
 
-    @Override
+
     public List<EmpVO> selectAll() {
         return dao.selectAll();
     }
 
-    @Override
+
     public List<EmpVO> searchList(String searchKey, String searchWord) {
-        return dao.searchList(searchKey,searchWord);
-    }
-
-    @Override
-    public int selectCount() {
-        return dao.selectCount();
-    }
-
-    @Override
-    public List<EmpVO> selectPage(int page, int limit) {
-        return dao.selectPage(page,limit);
+        return dao.searchList(searchKey, searchWord);
     }
 }

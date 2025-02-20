@@ -1,55 +1,84 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>부서 삭제 페이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 500px;
-      margin: 80px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    h1 {
-      color: #333;
-      margin-bottom: 20px;
-    }
-    .message {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-    a.button {
+    input[type=text],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px 8px;
+      margin: 8px 0;
       display: inline-block;
-      padding: 10px 20px;
-      background-color: #d9534f;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
+      border: 1px solid #ff8f8f;
+      border-radius: 14px;
+      box-sizing: border-box;
     }
-    a.button:hover {
-      background-color: #c9302c;
+
+    input[type=submit] {
+      width: 30%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 8px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #b7e5b9;
+    }
+
+    div {
+      border-radius: 15px;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    #insertTable {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #insertTable td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #insertTable tr:nth-child(even) {
+      background-color: #ebebeb;
+    }
+
+    #insertTable tr:hover {
+      background-color: #ffc6c6;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>부서 삭제 페이지</h1>
-    <jsp:include page="../top_menu.jsp"/>
-    <p class="message">${param.job_id} 직업 아이디를 정말 삭제하시겠습니까?</p>
-    <a href="j_deleteOK.do?job_id=${param.job_id}" class="button">삭제</a>
-  </div>
+<jsp:include page="../top_menu.jsp"/>
+<div>
+  <h1>업무삭제 페이지</h1>
+  <form action="j_deleteOK.do">
+    <table id="insertTable">
+      <tr>
+        <td>${param.job_id} 업무를 정말삭제하시겠습니까?
+          <input type="hidden" id="job_id" name="job_id" value="${param.job_id}">
+        </td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="삭제완료"></td>
+      </tr>
+    </table>
+  </form>
+</div>
 </body>
+
 </html>

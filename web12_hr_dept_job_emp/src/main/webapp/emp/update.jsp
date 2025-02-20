@@ -1,146 +1,135 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>직원 수정 페이지</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background: #fff;
-            border-radius: 8px;
-            padding: 20px 30px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        form table {
-            width: 100%;
-            margin: 20px 0;
-        }
-        form table td {
-            padding: 10px;
-        }
-        label {
-            font-weight: bold;
-            color: #555;
-        }
-        input[type="text"],
-        input[type="password"],
-        input[type="tel"] {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        input[type="submit"] {
-            width: 100%;
-            background-color: #0c8785;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #274e00;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    input[type=text],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ff8f8f;
+      border-radius: 14px;
+      box-sizing: border-box;
+    }
+
+    input[type=submit] {
+      width: 30%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 8px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #b7e5b9;
+    }
+
+    div {
+      border-radius: 15px;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    #insertTable {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #insertTable td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #insertTable tr:nth-child(even) {
+      background-color: #ebebeb;
+    }
+
+    #insertTable tr:hover {
+      background-color: #ffc6c6;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>직원 수정 페이지</h1>
-        <jsp:include page="../top_menu.jsp"/>
-        <form action="e_updateOK.do" method="post">
-            <table>
-                <tr>
-                    <td>직원번호:</td>
-                    <td>
-                        ${param.employee_id}
-                        <input type="hidden" id="employee_id" name="employee_id" value="${param.employee_id}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="first_name">성:</label></td>
-                    <td>
-                        <input type="text" id="first_name" name="first_name" value="${vo2.first_name}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="last_name">이름:</label></td>
-                    <td>
-                        <input type="text" id="last_name" name="last_name" value="${vo2.last_name}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="email">이메일:</label></td>
-                    <td>
-                        <input type="text" id="email" name="email" value="${vo2.email}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="phone_number">전화번호:</label></td>
-                    <td>
-                        <input type="text" id="phone_number" name="phone_number" value="${vo2.phone_number}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="hire_date">입사일자:</label></td>
-                    <td>
-                        <input type="text" id="hire_date" name="hire_date" value="${vo2.hire_date}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="job_id">직업아이디:</label></td>
-                    <td>
-                        <input type="text" id="job_id" name="job_id" value="${vo2.job_id}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="salary">연봉:</label></td>
-                    <td>
-                        <input type="text" id="salary" name="salary" value="${vo2.salary}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="commision_pct">커미선포인트:</label></td>
-                    <td>
-                        <input type="text" id="commission_pct" name="commission_pct" value="${vo2.commission_pct}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="manager_id">메니저아이디:</label></td>
-                    <td>
-                        <input type="number" id="manager_id" name="manager_id" value="${vo2.manager_id}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="department_id">부서아이디:</label></td>
-                    <td>
-                        <input type="number" id="department_id" name="department_id" value="${vo2.department_id}">
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" value="전송">
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
+<jsp:include page="../top_menu.jsp"/>
+<div>
+  <h1>사원수정 페이지</h1>
+  <form action="e_updateOK.do" method="post">
+    <table id="insertTable">
+      <tr>
+        <td><label for="employee_id">department_id</label></td>
+        <td>${vo2.employee_id}<input type="hidden" id="employee_id" name="employee_id"
+                   value="${vo2.employee_id}" ></td>
+      </tr>
+      <tr>
+        <td><label for="first_name">first_name</label></td>
+        <td><input type="text" id="first_name" name="first_name" value="GilDong"
+                   placeholder="first_name을 입력하세요"></td>
+      </tr>
+      <tr>
+        <td><label for="last_name">last_name</label></td>
+        <td><input type="text" id="last_name" name="last_name" value="Hong"
+                   placeholder="last_name을 입력하세요"></td>
+      </tr>
+      <tr>
+        <td><label for="email">email</label></td>
+        <td><input type="text" id="email" name="email" value="Hong@aaa.com"
+                   placeholder="email를 입력하세요"></td>
+      </tr>
+      <tr>
+      <tr>
+        <td><label for="phone_number">phone_number</label></td>
+        <td><input type="text" id="phone_number" name="phone_number" value="010-0000-0000"
+                   placeholder="phone_number를 입력하세요"></td>
+      </tr>
+      <tr>
+        <td><label for="hire_date">hire_date</label></td>
+        <td><input type="date" id="hire_date" name="hire_date" value=""
+                   placeholder="hire_date를 입력하세요"></td>
+      </tr>
+      <tr>
+        <td><label for="job_id">job_id</label></td>
+        <td><input type="text" id="job_id" name="job_id" value="IT_PROG"
+                   placeholder="job_id를 입력하세요"></td>
+      </tr>
+      <tr>
+        <td><label for="salary">salary</label></td>
+        <td><input type="number" id="salary" name="salary" value="6000"
+                   placeholder="salary를 입력하세요"></td>
+      </tr>
+      <tr>
+        <td><label for="commission_pct">commission_pct</label></td>
+        <td><input type="text" id="commission_pct" name="commission_pct" value="0.1"
+                   placeholder="commission_pct를 입력하세요"></td>
+      </tr>
+      <tr>
+        <td><label for="manager_id">manager_id</label></td>
+        <td><input type="number" id="manager_id" name="manager_id" value="200"
+                   placeholder="manager_id를 입력하세요"></td>
+      </tr>
+      <tr>
+        <td><label for="department_id">department_id</label></td>
+        <td><input type="number" id="department_id" name="department_id" value="30"
+                   placeholder="department_id를 입력하세요"></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit" value="수정완료"></td>
+      </tr>
+    </table>
+  </form>
+</div>
 </body>
+
 </html>

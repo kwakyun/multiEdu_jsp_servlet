@@ -1,104 +1,101 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>직책 수정 페이지</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background: #fff;
-            border-radius: 8px;
-            padding: 20px 30px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        form table {
-            width: 100%;
-            margin: 20px 0;
-        }
-        form table td {
-            padding: 10px;
-        }
-        label {
-            font-weight: bold;
-            color: #555;
-        }
-        input[type="text"],
-        input[type="password"],
-        input[type="tel"] {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        input[type="submit"] {
-            width: 100%;
-            background-color: #0c8785;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #274e00;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    input[type=text],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ff8f8f;
+      border-radius: 14px;
+      box-sizing: border-box;
+    }
+
+    input[type=submit] {
+      width: 30%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 8px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #b7e5b9;
+    }
+
+    div {
+      border-radius: 15px;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    #insertTable {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #insertTable td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #insertTable tr:nth-child(even) {
+      background-color: #ebebeb;
+    }
+
+    #insertTable tr:hover {
+      background-color: #ffc6c6;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>직책 수정 페이지</h1>
-        <jsp:include page="../top_menu.jsp"/>
-        <form action="j_updateOK.do" method="post">
-            <table>
-                <tr>
-                    <td>직책번호:</td>
-                    <td>
-                        ${param.job_id}
-                        <input type="hidden" id="job_id" name="job_id" value="${param.job_id}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="job_title">직책명:</label></td>
-                    <td>
-                        <input type="text" id="job_title" name="job_title" value="${vo2.job_title}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="min_salary">최소급여:</label></td>
-                    <td>
-                        <input type="text" id="min_salary" name="min_salary" value="${vo2.min_salary}">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="max_salary">최대급여:</label></td>
-                    <td>
-                        <input type="text" id="max_salary" name="max_salary" value="${vo2.max_salary}">
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" value="전송">
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
+<jsp:include page="../top_menu.jsp"/>
+<div>
+  <h1>업무수정 페이지</h1>
+  <form action="j_updateOK.do" method="post">
+    <table id="insertTable">
+      <tr>
+        <td><label for="job_id">job_id</label></td>
+        <td>${vo2.job_id}
+          <input type="hidden" id="job_id" name="job_id" value="${vo2.job_id}">
+        </td>
+      </tr>
+      <tr>
+        <td><label for="job_title">job_title</label></td>
+        <td><input type="text" id="job_title" name="job_title" value="${vo2.job_title}"
+                   placeholder="업무명을 입력하세요"></td>
+      </tr>
+      <tr>
+        <td><label for="min_salary">min_salary</label></td>
+        <td><input type="number" id="min_salary" name="min_salary" value="${vo2.min_salary}"
+                   placeholder="최소급여를 입력하세요"></td>
+      </tr>
+      <tr>
+      <tr>
+        <td><label for="max_salary">max_salary</label></td>
+        <td><input type="number" id="max_salary" name="max_salary" value="${vo2.max_salary}"
+                   placeholder="최대급여를 입력하세요"></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit" value="수정완료"></td>
+      </tr>
+    </table>
+  </form>
+</div>
 </body>
+
 </html>

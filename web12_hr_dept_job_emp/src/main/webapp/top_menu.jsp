@@ -6,5 +6,3 @@
 <a href="d_selectAll.do">부서목록</a>
 <a href="j_insert.do">업무등록</a>
 <a href="j_selectAll.do">업무목록</a>
-
-<hr>
