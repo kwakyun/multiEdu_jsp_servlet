@@ -33,4 +33,14 @@ public class EmpService implements EmpDAO {
     public List<EmpVO> searchList(String searchKey, String searchWord) {
         return dao.searchList(searchKey,searchWord);
     }
+
+    @Override
+    public int selectCount() {
+        return dao.selectCount();
+    }
+
+    @Override
+    public List<EmpVO> selectPage(int page, int limit) {
+        return dao.selectPage(page,limit);
+    }
 }
