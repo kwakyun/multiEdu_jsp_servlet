@@ -71,9 +71,8 @@
             </tr>
             <tr>
                 <td><label for="upFile">프로필사진 업로드:</label></td>
-                <td>
-                     <input type="file" id="upFile" name="upFile">
-                </td>
+                <td><img src="upload/${vo2.imgName}" width="30" alt="default.png"></td>
+                <td><input type="file" id="upFile" name="upFile"> </td>
 
             </tr>
             <tr>

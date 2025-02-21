@@ -101,14 +101,29 @@ public class MemberDAOimpl implements MemberDAO {
         try {
             conn = DriverManager.getConnection(url,user_name,password);
             System.out.println("conn successed...");
-            String sql = "update member set id=?,pw=?,name=?,tel=?,imgName=? where num=?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1,vo.getId());
-            pstmt.setString(2,vo.getPw());
-            pstmt.setString(3,vo.getName());
-            pstmt.setString(4,vo.getTel());
-            pstmt.setString(5,vo.getImgName());
-            pstmt.setInt(6,vo.getNum());
+            String sql = "";
+
+            //변경할 이미지가 왔을때와 그렇지 않을때 업데이트쿼리문 분기
+            if(vo.getImgName().equals("default.png")){
+                sql = "update member set id=?,pw=?,name=?,tel=? where num=?";
+                pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1,vo.getId());
+                pstmt.setString(2,vo.getPw());
+                pstmt.setString(3,vo.getName());
+                pstmt.setString(4,vo.getTel());
+                pstmt.setInt(5,vo.getNum());
+            }else{
+
+                sql = "update member set id=?,pw=?,name=?,tel=?,imgName=? where num=?";
+                pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1,vo.getId());
+                pstmt.setString(2,vo.getPw());
+                pstmt.setString(3,vo.getName());
+                pstmt.setString(4,vo.getTel());
+                pstmt.setString(5,vo.getImgName());
+                pstmt.setInt(6,vo.getNum());
+            }
+
 
             flag = pstmt.executeUpdate();//insert,update,delete
             System.out.println("pstmt successed...flag : " + flag);

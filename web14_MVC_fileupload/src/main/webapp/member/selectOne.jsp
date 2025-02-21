@@ -48,7 +48,7 @@
             <td>${vo2.pw}</td>
             <td>${vo2.name}</td>
             <td>${vo2.tel}</td>
-            <td><img src="upload/${vo2.imgName}" width="50" alt="default.png"></td>
+            <td><img src="upload/${vo2.imgName}" width="300" alt="default.png"></td>
         </tr>
         <tr>
             <td colspan="5">
