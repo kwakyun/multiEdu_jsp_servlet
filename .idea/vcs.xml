@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web13_fileupload" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web15_MVC_idCheck" vcs="Git" />
   </component>
 </project>
